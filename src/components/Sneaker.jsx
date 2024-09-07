@@ -1,4 +1,4 @@
-export default function Sneaker({ sneaker }) {
+export default function Sneaker({ sneaker, addToBag }) {
   const { id, name, image, description, price } = sneaker;
 
   return (
@@ -11,7 +11,7 @@ export default function Sneaker({ sneaker }) {
           <p className="text-md font-bold">${price}</p>
         </div>
         <div className="flex justify-center lg:justify-start">
-          <button className="mt-6 bg-black text-white rounded-2xl py-4 px-10">
+          <button className="mt-6 bg-black text-white rounded-2xl py-4 px-10" onClick={() => addToBag(sneaker)}>
             Add to shopping bag
           </button>
         </div>

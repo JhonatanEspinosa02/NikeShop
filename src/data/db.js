@@ -15,7 +15,7 @@ export const db = [
     },
     {
         id: 3,
-        name: "Jordan Spizike Low Paris Saint-Germain",
+        name: "Jordan Spizike Low",
         image: "Sneaker_03",
         description: "Men's sneakers",
         price: 4099

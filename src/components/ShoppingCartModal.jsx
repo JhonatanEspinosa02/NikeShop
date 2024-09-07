@@ -2,8 +2,16 @@ import { IoBagAddOutline } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
+import { IoCloseSharp } from "react-icons/io5";
 
-export default function ShoppingCartModal({ isOpen, modal }) {
+export default function ShoppingCartModal({
+  isOpen,
+  modal,
+  bag,
+  bagQuantityIncrease,
+  badQuantityDecrease,
+  emptyBag,
+}) {
   return (
     <>
       <div>
@@ -14,46 +22,56 @@ export default function ShoppingCartModal({ isOpen, modal }) {
         <div
           className={`fixed inset-y-0 right-0 w-1/3 bg-white shadow-lg transform ${
             modal ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out z-10`}
+          } transition-transform duration-300 ease-in-out z-10 scroll-m-0 overflow-auto`}
         >
           <div className="p-4">
-            <h2 className="text-xl font-bold">Shopping Bag</h2>
-
-            <div className="flex justify-around items-start my-10 last-of-type:border-b-2 last-of-type:border-gray-200 pb-6">
-              <div className="w-1/3">
-                <img src="./img/Sneaker_02.png" alt="02" />
-              </div>
-
-              <div>
-                <p className="text-xl font-bold">Nike Air Force 1 '07</p>
-                <p className="text-gray-400">Men's sneakers</p>
-                <p className="text-gray-400">$2599</p>
-
-                <div className="flex justify-around my-5 bg-gray-100 p-2 rounded-xl">
-                  <button>
-                    <FaMinus />
-                  </button>
-                  5
-                  <button>
-                    <FaPlus />
-                  </button>
-                </div>
-
-                <div className="flex justify-between">
-                  <p className="font-semibold">SubTotal: $12995</p>
-                  <button>
-                    <FaRegTrashAlt />
-                  </button>
-                </div>
-              </div>
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-bold">Shopping Bag</h2>
+              <button className="text-3xl " onClick={isOpen}>
+                <IoCloseSharp />
+              </button>
             </div>
 
-            <button
-              className="mt-4 bg-black text-white px-4 py-2 rounded"
-              onClick={isOpen}
-            >
-              Cerrar Modal
-            </button>
+            {bag.map((sneak) => (
+              <div
+                key={sneak.id}
+                className="flex justify-around items-start my-10 last-of-type:border-b-2 last-of-type:border-gray-200 pb-6"
+              >
+                <div className="w-1/3">
+                  <img src={`./img/${sneak.image}.png`} alt={`${sneak.id}`} />
+                </div>
+
+                <div>
+                  <p className="text-xl font-bold">{sneak.name}</p>
+                  <p className="text-gray-400">{sneak.description}</p>
+                  <p className="text-gray-400">${sneak.price}</p>
+
+                  <div className="flex justify-around my-5 bg-gray-100 p-2 rounded-xl">
+                    <button onClick={() => badQuantityDecrease(sneak.id)}>
+                      <FaMinus />
+                    </button>
+                    {sneak.quantity}
+                    <button onClick={() => bagQuantityIncrease(sneak.id)}>
+                      <FaPlus />
+                    </button>
+                  </div>
+
+                  <div className="flex justify-between">
+                    <p className="font-semibold">SubTotal: $12,995</p>
+                    <button onClick={() => emptyBag(sneak.id)}>
+                      <FaRegTrashAlt />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+            <p className="font-semibold text-xl">Total: $20,000</p>
+          </div>
+
+          <div className="grid grid-cols-1 items-center m-8">
+            <button className="bg-black text-white mx-10 p-4 rounded-2xl">Buy</button>
+            <button className="bg-red-600 text-white my-5 mx-10 p-4 rounded-2xl">Clean Bag</button>
+
           </div>
         </div>
 
