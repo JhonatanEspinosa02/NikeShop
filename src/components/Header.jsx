@@ -7,6 +7,7 @@ export default function Header({
   bagQuantityIncrease,
   badQuantityDecrease,
   emptyBag,
+  deleteSneakerBag
 }) {
   const [modal, setModal] = useState(false);
 
@@ -25,6 +26,7 @@ export default function Header({
         bagQuantityIncrease={bagQuantityIncrease}
         badQuantityDecrease={badQuantityDecrease}
         emptyBag={emptyBag}
+        deleteSneakerBag={deleteSneakerBag}
       />
     </nav>
   );

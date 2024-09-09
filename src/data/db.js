@@ -22,7 +22,7 @@ export const db = [
     },
     {
         id: 4,
-        name: "Giannis Freak 6",
+        name: "Nike Giannis Freak 6",
         image: "Sneaker_04",
         description: "Basketball sneakers",
         price: 3099
@@ -43,7 +43,7 @@ export const db = [
     },
     {
         id: 7,
-        name: "Nike Air More Uptempo '96",
+        name: "Nike More Uptempo '96",
         image: "Sneaker_07",
         description: "Men's sneakers",
         price: 3074
@@ -71,7 +71,7 @@ export const db = [
     },
     {
         id: 11,
-        name: "Nike Air Force 1 Low EVO",
+        name: "Nike Air Force 1 EVO",
         image: "Sneaker_11",
         description: "Men's sneakers",
         price: 3399
@@ -92,14 +92,14 @@ export const db = [
     },
     {
         id: 14,
-        name: "Jordan Nu Retro 1 Low",
+        name: "Jordan Retro 1 Low",
         image: "Sneaker_14",
         description: "Men's sneakers",
         price: 2599
     },
     {
         id: 15,
-        name: "Nike Dunk Low Retro",
+        name: "Nike Dunk Retro",
         image: "Sneaker_15",
         description: "Men's sneakers",
         price: 2079
@@ -127,7 +127,7 @@ export const db = [
     },
     {
         id: 19,
-        name: "Jordan One Take 5 Quai 54",
+        name: "Jordan One Take 5",
         image: "Sneaker_19",
         description: "Men's sneakers",
         price: 1679

@@ -54,11 +54,14 @@ function App() {
     setBag(bagFilter)
   }
 
+  function deleteSneakerBag() {
+    setBag([])
+  }
 
 
   return (
     <>
-      <Header bag={bag} bagQuantityIncrease={bagQuantityIncrease} badQuantityDecrease={badQuantityDecrease} emptyBag={emptyBag}/>
+      <Header bag={bag} bagQuantityIncrease={bagQuantityIncrease} badQuantityDecrease={badQuantityDecrease} emptyBag={emptyBag} deleteSneakerBag={deleteSneakerBag}/>
 
       <div className="bg-white sm:grid grid-cols-2 lg:grid-cols-3">
         {db.map((sneaker) => (

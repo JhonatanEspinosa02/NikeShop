@@ -10,8 +10,8 @@ export default function Sneaker({ sneaker, addToBag }) {
           <p className="text-gray-500 font-semibold">{description}</p>
           <p className="text-md font-bold">${price}</p>
         </div>
-        <div className="flex justify-center lg:justify-start">
-          <button className="mt-6 bg-black text-white rounded-2xl py-4 px-10" onClick={() => addToBag(sneaker)}>
+        <div className="flex justify-center lg:justify-center mt-4">
+          <button className="mt-6 bg-black text-white rounded-2xl py-4 px-10 hover:bg-zinc-800" onClick={() => addToBag(sneaker)}>
             Add to shopping bag
           </button>
         </div>
