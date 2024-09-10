@@ -10,16 +10,16 @@ export default function Sneaker({ sneaker, addToBag }) {
 
   return (
     <>
-      <div className="h-auto mx-auto m-5 p-5">
+      <div className="h-auto mx-auto">
         <img src={`./img/${image}.png`} alt={`Sneaker ${name}`} />
         <div className="mt-5">
           <p className="text-xl font-bold">{name}</p>
           <p className="text-gray-500 font-semibold">{description}</p>
           <p className="text-md font-bold">${price}</p>
         </div>
-        <div className="flex justify-center lg:justify-center mt-4">
+        <div className="flex justify-center items-center lg:justify-center mt-10">
           <button
-            className="mt-6 bg-black text-white rounded-2xl py-4 px-10 hover:bg-zinc-800"
+            className="bg-black text-white h-10 px-4 rounded-2xl hover:bg-zinc-800"
             onClick={() => addToBag(sneaker, successAlert())}
           >
             Add to shopping bag
