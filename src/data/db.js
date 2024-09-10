@@ -142,3 +142,19 @@ export const db = [
 ]
 
 
+export const categories = [
+    {
+        category: "New"
+    },
+    {
+        category: "Men"
+    },
+    {
+        category: "Women"
+    },
+    {
+        category: "Kids"
+    },
+]
+
+

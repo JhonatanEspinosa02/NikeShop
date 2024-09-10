@@ -1,4 +1,3 @@
-import { IoBagAddOutline } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -6,6 +5,9 @@ import { IoCloseSharp } from "react-icons/io5";
 import { useMemo } from "react";
 import { FaApplePay } from "react-icons/fa";
 import { FaGooglePay } from "react-icons/fa";
+import { IoBagHandleOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ShoppingCartModal({
   isOpen,
@@ -16,6 +18,10 @@ export default function ShoppingCartModal({
   emptyBag,
   deleteSneakerBag,
 }) {
+  function cleanBagAlert() {
+    toast.error("Bag emptied successfully.");
+  }
+
   const renderLength = useMemo(() => bag.length === 0, [bag]);
   const Total = useMemo(
     () =>
@@ -29,9 +35,9 @@ export default function ShoppingCartModal({
   return (
     <>
       <div>
-        <button onClick={isOpen}>
-          <IoBagAddOutline className="text-4xl" />
-        </button>
+          <button onClick={isOpen}>
+            <IoBagHandleOutline className="text-4xl" />
+          </button>
 
         <div
           className={`fixed inset-y-0 right-0 w-1/3 bg-white shadow-lg transform ${
@@ -88,18 +94,36 @@ export default function ShoppingCartModal({
             </div>
           )}
           <div className="grid grid-cols-1 items-center m-8">
-            <button className= {`${renderLength ? "bg-black text-white hover:bg-zinc-800 opacity-40 cursor-not-allowed" : "bg-black text-white hover:bg-zinc-800"}  mx-10 p-4 rounded-2xl`}>
+            <button
+              className={`${
+                renderLength
+                  ? "bg-black text-white hover:bg-zinc-800 opacity-40 cursor-not-allowed"
+                  : "bg-black text-white hover:bg-zinc-800"
+              }  mx-10 p-4 rounded-2xl`}
+            >
               Buy as Guest
             </button>
-            <button className={`flex justify-center ${renderLength ? "bg-gray-100 hover:bg-white opacity-40 cursor-not-allowed" : "bg-gray-100 hover:bg-white"} text-5xl mx-10 my-5 border border-gray-300 rounded-2xl`}>
+            <button
+              className={`flex justify-center ${
+                renderLength
+                  ? "bg-gray-100 hover:bg-white opacity-40 cursor-not-allowed"
+                  : "bg-gray-100 hover:bg-white"
+              } text-5xl mx-10 my-5 border border-gray-300 rounded-2xl`}
+            >
               <FaApplePay />
             </button>
 
-            <button className={`flex justify-center ${renderLength ? "bg-gray-100 hover:bg-white opacity-40 cursor-not-allowed" : "bg-gray-100 hover:bg-white"} text-5xl mx-10  border border-gray-300 rounded-2xl`}>
+            <button
+              className={`flex justify-center ${
+                renderLength
+                  ? "bg-gray-100 hover:bg-white opacity-40 cursor-not-allowed"
+                  : "bg-gray-100 hover:bg-white"
+              } text-5xl mx-10  border border-gray-300 rounded-2xl`}
+            >
               <FaGooglePay />
             </button>
             <button
-              onClick={() => deleteSneakerBag()}
+              onClick={() => deleteSneakerBag(cleanBagAlert())}
               className=" text-red-600 hover:text-white my-16 mx-10 p-4 rounded-2xl hover:bg-red-500"
             >
               Clean Bag
